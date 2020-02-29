@@ -1,5 +1,5 @@
 let RainbowSDK = require("rainbow-node-sdk");
-
+let rainbowReady = false;
 // Define your configuration
 let options = {
     rainbow: {
@@ -27,7 +27,7 @@ let options = {
         }, 
         file: {
             path: "/var/tmp/rainbowsdk/",
-            customFileName: "R-SDK-Node-Sample2",
+            customFileName: "R-nSDK-Node-Sample2",
             level: "debug",
             zippedArchive : false/*,
             maxSize : '10m',
@@ -45,9 +45,44 @@ let rainbowSDK = new RainbowSDK(options);
 
 // Start the SDK
 rainbowSDK.start();
+
 rainbowSDK.events.on('rainbow_onready', function() {
     // do something when the SDK is connected to Rainbow
     console.log("Everything works!");
+    rainbowReady = true;
+    if (rainbowReady) {
+        rainbowSDK.admin
+            .createAnonymousGuestUser()
+            .then(user => {
+                rainbowSDK.admin
+                    .askTokenOnBehalf(user.loginEmail, user.password)
+                    .then(json => {
+                        console.log(json);
+                        res.send(json.token);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    } else {
+        res.status(400).send("server not ready");
+    }
+
+});
+rainbowSDK.events.on("rainbow_onmessagereceived", (message) => {
+    // Check if the message is not from you
+    if(!message.fromJid.includes(rainbowSDK.connectedUser.jid_im)) {
+        // Check that the message is from a user and not a bot
+        if( message.type === "chat") {
+            // Answer to this user
+            rainbowSDK.im.sendMessageToJid("hello! How may I help you?", message.fromJid);
+            // Do something with the message sent
+            
+        }
+    }
 });
 
 rainbowSDK.events.on('rainbow_onerror', function(err) {
