@@ -1,5 +1,6 @@
 let rainbowReady = false;
-var totalAgents = 0;
+let agentCount = 0;
+
 // Load the SDK
 let RainbowSDK = require("rainbow-node-sdk");
 
@@ -14,12 +15,13 @@ let options = {
     },
     // Application identifier
     application: {
-        appID: "9fcbc0605a2d11eabf7e77d14e87b936",
-        appSecret: "dN3PH9XbCrxRe39OeJdYBkhrEKt8om7jm0iAvnHTwhVT40Hc1tUmdSaalUM5C3d9"
+        appID: "b61d1e604d9c11ea819a43cb4a9dae9b",
+        appSecret:
+            "t9EcSl9Df3qUGJBhdVMhS9UVavSwd6mttfT2hHW8A1310V6b6gy7FOzav3gWcpUC"
     },
     // Logs options
     logs: {
-        enableConsoleLogs: true,
+        enableConsoleLogs: false,
         enableFileLogs: false,
         file: {
             path: "/var/tmp/rainbowsdk/",
@@ -29,7 +31,6 @@ let options = {
     // IM options
     im: {
         sendReadReceipt: true
-
     }
 };
 
@@ -41,8 +42,7 @@ rainbowSDK.start();
 
 rainbowSDK.events.on("rainbow_onready", () => {
     console.log("RAINBOW IS READY");
-    rainbowReady = true;
-    setAgentsAvailable();
+    initAgentStatusAll();
 });
 
 rainbowSDK.events.on("rainbow_onstopped", () => {
@@ -50,9 +50,9 @@ rainbowSDK.events.on("rainbow_onstopped", () => {
     rainbowReady = false;
 });
 
-// rainbowSDK.events.on("rainbow_oncontactpresencechanged", contact => {
-//     onAgentStatusChange(contact.id, contact.presence);
-// });
+rainbowSDK.events.on("rainbow_oncontactpresencechanged", contact => {
+    onAgentStatusChange(contact.id, contact.presence);
+});
 
 const getRainbowReady = () => {
     return rainbowReady;
@@ -62,32 +62,57 @@ const getRainbowSDK = () => {
     return rainbowSDK;
 };
 
-const setAgentsAvailable = async() =>{
-    let agents = await rainbowSDK.contacts.getAll();
-    totalAgents = agents.length - 1;
-    for (agent in agents){
-        initAgent(agent.id, agent.presence);
+const initAgentStatusAll = async () => {
+    let contacts = await rainbowSDK.contacts.getAll();
+    agentCount = contacts.length - 1;
+    for (contact of contacts) {
+        if (!contact.adminType) {
+            initAgentStatus(contact.id, contact.presence);
+        }
     }
 };
-const initAgent = async(id, presence) =>{
-    if(presence == 'online'){
-        await dbManager.setAgentOnline(id);
-        await dbManager.setAgentAvailable(id);
-        console.log('Agent${id} set to online');
-    }
-    else{
-        await dbManager.setAgentUnavailable(id);
-        await dbManager.setAgentOffline(id);
-        console.log(`Agent ${id} set to offline`);
-    }
-    totalAgents -=1;
-    if(totalAgents == 0){
+
+const initAgentStatus = async (id, presence) => {
+    // if (presence === "online") {
+        await databaseManager.setAgentOnline(id);
+        await databaseManager.setAgentAvailable(id);
+        console.log(`Agent ${id} set to online`);
+    // } else {
+    //     await databaseManager.setAgentUnavailable(id);
+    //     await databaseManager.setAgentOffline(id);
+    //     console.log(`Agent ${id} set to offline`);
+    // }
+    agentCount -= 1;
+    if (agentCount === 0) {
         rainbowReady = true;
-        console.log("System is ready! All agents initialized!")
+        console.log("All agent statuses set, Allocabl is ready");
     }
-}
+};
 
-const dbManager = require("./dbmanager");
-module.exports = {getRainbowReady, getRainbowSDK};
+const onAgentStatusChange = async (id, presence) => {
+    if (presence === "online") {
+        await databaseManager.setAgentOnline(id);
+        await databaseManager.setAgentAvailable(id);
+        console.log(`Agent ${id} set to online`);
+        let rows = await databaseManager.getAgentDepartment(id);
+        socketEvents.checkWaitlist(rows[0].department);
+    } else {
+        await databaseManager.setAgentUnavailable(id);
+        await databaseManager.setAgentOffline(id);
+        console.log(`Agent ${id} set to offline`);
+        let rows = await databaseManager.getAgentDepartment(id);
+        let waiters = await databaseManager.getDepartmentWaitlist(
+            rows[0].department
+        );
+        databaseManager.clearDepartmentWaitlist(rows[0].department);
+        for (waiting of waiters) {
+            let socket = global.io.sockets.connected[waiting.socket_id];
+            socket.emit("customError", "all agents have gone offline");
+        }
+    }
+};
 
+module.exports = { getRainbowReady, getRainbowSDK };
 
+const databaseManager = require("./dbmanager");
+const socketEvents = require("./socketEvents");

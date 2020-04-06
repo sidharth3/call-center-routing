@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ClientAgentRouting</title>
+        <!-- RainbowSDK -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js"></script>
+        <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="//cdn.jsdelivr.net/momentjs/2.15.1/moment-with-locales.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.5/angular.min.js"></script>
+        <script src="./vendors-sdk.min.js"></script>
+        <script src="./rainbow-sdk.min.js"></script>
+        <!-- BotUI -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css" />
+        <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+        <!-- Allocabl -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="module" src="./index.js"></script>
+
+        <!-- Style -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- Style/Vars-->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    </head>
+        <div class="chat-container">
+            <div class="botui-app-container" id="allocablPrompt">
+                <bot-ui></bot-ui>
+            </div>
+            <div class="support_image">
+                <img id="support_image" src="images/support.png" weight="50" height ="50" width= "50" alt="support image" onclick="myFunction()">
+            </div>
+        </div>
+
+  
+        <script>
+            // When the user clicks on div, open the popup
+            function myFunction() {
+              var popup = document.getElementById("allocablPrompt");
+              // Toggle image between when on clicked , support.png (BLUE) to support_active.png (RED)
+              var support = document.getElementById("support_image")
+              var support_image = "images/support.png";
+              var support_active = "images/support_active.png";
+              if (support.getAttribute("src") == support_image ){
+                  support.setAttribute("src","images/support_active.png");
+              }else{
+                  support.setAttribute("src","images/support.png");
+              }
+              popup.classList.toggle("show");
+            }
+        </script>
+    </body>
+</html>
