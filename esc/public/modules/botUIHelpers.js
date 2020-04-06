@@ -5,8 +5,7 @@ const initialPrompt = async botui => {
     });
     let res = await botui.action.button({
         // show 'text' action
-        action: [
-            {
+        action: [{
                 text: "Yes!",
                 value: "yes"
             },
@@ -35,8 +34,7 @@ const departmentPrompt = async botui => {
     });
     let res = await botui.action.button({
         delay: 300,
-        action: [
-            {
+        action: [{
                 text: "Sales",
                 value: "sales"
             },
@@ -53,7 +51,7 @@ const departmentPrompt = async botui => {
     return departmentChosen(botui, res.value);
 };
 
-const departmentChosen = async (botui, dept) => {
+const departmentChosen = async(botui, dept) => {
     await botui.message.add({
         // show a message
         delay: 300,
@@ -62,7 +60,7 @@ const departmentChosen = async (botui, dept) => {
     return dept;
 };
 
-const connected = async (botui, resCallback) => {
+const connected = async(botui, resCallback) => {
     botui.message.removeAll();
     await botui.message.add({
         content: "You are now connected!"
@@ -70,7 +68,7 @@ const connected = async (botui, resCallback) => {
     textInput(botui, resCallback);
 };
 
-const textInput = async (botui, resCallback) => {
+const textInput = async(botui, resCallback) => {
     let result = await botui.action.text({
         action: {
             placeholder: "Type here"
