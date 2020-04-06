@@ -1,0 +1,252 @@
+/* Global */
+*,
+*::before,
+*::after{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	font-size: 10px;
+	font-family: sans-serif;
+	background-color: rgb(242,242,242);
+}
+
+a{
+	display: block;
+	text-decoration: none;
+}
+
+.container{
+	max-width:  98rem;
+	margin: 0 auto;
+	padding: 0 2.2rem;
+}
+/* Header */
+header{
+	position: fixed;
+	top: 0;
+	z-index: 1400;
+	width: 100%;
+	height: 4.4rem;
+	background-color: rgba(0,0,0,.8);
+	backdrop-filter: blur(2rem);
+}
+
+.nav-list{
+	list-style: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 -1rem;
+}
+
+.nav-list-mobile{
+	display: none;
+}
+
+.nav-link{
+	font-size: 1.4rem;
+	color: #fff;
+	padding: 0 1rem;
+	transition: opacity .5s;
+}
+
+.nav-link:hover{
+	opacity: .7;
+}
+
+.nav-link-apple{
+	width: 1.6rem;
+	height: 4.4rem;
+	background: url("images/icons/apple.svg") center no-repeat;
+}
+
+.nav-link-search{
+	width: 1.6rem;
+	height: 4.4rem;
+	background: url("images/icons/search.svg") center no-repeat;
+}
+
+.nav-link-bag{
+	width: 1.4rem;
+	height: 4.4rem;
+	background: url("images/icons/bag.svg") center no-repeat;
+}
+
+/* uPad pro section */
+.upad-pro{
+	background: url("images/hero/ipad/ipad_4.png");
+	margin-top: 4.4rem;
+}
+
+.title-pro{
+	color: #000;
+	text-align: center;
+	padding-top: 5.5rem;
+}
+
+.title-heading-pro{
+	font-size: 5.6rem;
+	line-height: 1.07143;
+	letter-spacing: -0.005rem;
+}
+
+.title-sub-heading-pro{
+	font-size: 2.65rem;
+	margin-top: 0.6rem;
+	letter-spacing: 0.008rem;
+	font-weight: 400;
+}
+
+.title-price-pro{
+	font-size: 1.7rem;
+	color: #888;
+	margin-top: .68rem;
+}
+
+.cta-pro{
+	text-align: center;
+	margin-top 1.8rem;
+}
+
+.cta-link-pro{
+	color: #66bbff;
+	font-size: 2.1rem;
+	display: inline-block;
+}
+
+.cta-link-pro:nth-child(2){
+	margin-left: 2.6rem;
+}
+
+.cta-link-pro:hover{
+	border-bottom: 2px solid #66bbff;
+}
+
+/*uPad section */
+.upad{
+	background: url("images/hero/ipad/ipad_5.png");
+}
+
+.title-dark{
+	color: #000;
+}
+
+.title-upad{
+	color: #000;
+	text-align: left;
+	padding-top: 12rem;
+}
+
+.title-heading-upad{
+	font-size: 5.6rem;
+	line-height: 1.07143;
+	letter-spacing: -0.005rem;
+}
+
+.title-sub-heading-upad{
+	font-size: 2.65rem;
+	margin-top: 0.6rem;
+	letter-spacing: 0.008rem;
+	font-weight: 400;
+}
+
+.title-price-upad{
+	font-size: 1.7rem;
+	color: #888;
+	margin-top: .68rem;
+}
+
+.cta-upad{
+	text-align: left;
+	margin-top 1.8rem;
+}
+
+.cta-link-upad{
+	color: #0070c9;
+	font-size: 2.1rem;
+	display: inline-block;
+}
+
+.cta-link-upad:nth-child(2){
+	margin-left: 2.6rem;
+}
+
+.cta-link-upad:hover{
+	border-bottom: 2px solid #0070c9;
+}
+
+/* uPad mini section */
+.mini{
+	background: url("images/hero/ipad/ipad_6.png");
+}
+
+.title-mini{
+	color: #000;
+	text-align: right;
+	padding-top: 5.5rem;
+}
+
+.title-heading-mini{
+	font-size: 5.6rem;
+	line-height: 1.07143;
+	letter-spacing: -0.005rem;
+}
+
+.title-sub-heading-mini{
+	font-size: 2.65rem;
+	margin-top: 0.6rem;
+	letter-spacing: 0.008rem;
+	font-weight: 400;
+}
+
+.title-price-mini{
+	font-size: 1.7rem;
+	color: #888;
+	margin-top: .68rem;
+}
+
+.cta-mini{
+	text-align: right;
+	margin-top 1.8rem;
+}
+
+.cta-link-mini{
+	color: #0070c9;
+	font-size: 2.1rem;
+	display: inline-block;
+}
+
+.cta-link-mini:nth-child(2){
+	margin-left: 2.6rem;
+}
+
+.cta-link-darker-mini:hover{
+	border-bottom: 2px solid #0070c9;
+}
+
+/* Move to the bottom of all section styles to keep consistent styles */
+.hero{
+	height: 69.2rem;
+	background-size: auto 73.6rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-top: .6rem solid #fff;
+	border-bottom: .6rem solid #fff;
+}
+
+.upad{
+	height: 59.2rem;
+	background-size: auto 63.6rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-top: .6rem solid #fff;
+	border-bottom: .6rem solid #fff;
+}
+
+.iphone-11-pro{
+	border-top: none;
+}
+
+/* End */
