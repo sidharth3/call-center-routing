@@ -1,7 +1,7 @@
 const initialPrompt = async botui => {
     await botui.message.add({
         // show a message
-        content: "Hi there! Would you like to talk to an agent?"
+        content: "Hello! Would you like to be connected to our Customer Service?"
     });
     let res = await botui.action.button({
         // show 'text' action
@@ -35,11 +35,11 @@ const departmentPrompt = async botui => {
     let res = await botui.action.button({
         delay: 300,
         action: [{
-                text: "Sales",
+                text: "uPhone",
                 value: "sales"
             },
             {
-                text: "Finance",
+                text: "uPad",
                 value: "finance"
             },
             {
