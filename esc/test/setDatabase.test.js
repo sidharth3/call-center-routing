@@ -41,7 +41,7 @@ describe('#setDatabase()', function() {
 
         it('should throw an Error for no input', function() {
             //expect(setDatabase());
-            expect(setDatabase.bind(setDatabase, null)).to.throw("database name must be alphanumeric");
+            expect(setDatabase.bind(setDatabase, )).to.throw("database name must be alphanumeric");
         })
 
     })
