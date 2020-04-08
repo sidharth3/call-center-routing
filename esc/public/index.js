@@ -30,7 +30,7 @@ $(function() {
     });
 
     /* Listen to the SDK event RAINBOW_ONREADY */
-    document.addEventListener(rainbowSDK.RAINBOW_ONREADY, async () => {
+    document.addEventListener(rainbowSDK.RAINBOW_ONREADY, async() => {
         console.log("[DEMO] :: On Rainbow Ready!");
         let dept = await initialPrompt(botui);
         if (dept) {

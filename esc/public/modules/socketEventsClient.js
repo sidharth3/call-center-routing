@@ -2,7 +2,7 @@ const customError = msg => {
     console.error(msg);
 };
 
-const loginInfo = async (rainbowSDK, info) => {
+const loginInfo = async(rainbowSDK, info) => {
     let account = await rainbowSDK.connection.signinSandBoxWithToken(
         info.token
     );
