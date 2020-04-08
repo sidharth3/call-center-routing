@@ -81,19 +81,21 @@ const loginGuest = async (socket, department) => {
             socket.emit("customError", "databaseError");
         }
     }
-    // } else {
-    //     console.log("server not ready");
-    //     socket.emit("customError", "server not ready");
-    // }
+     else {
+        console.log("server not ready");
+        socket.emit("customError", "server not ready");
+    }
 };
 
 const checkWaitlist = async department => {
     let nextInList = await databaseManager.getFromWaitList(department);
-    console.log(nextInList);
+    //console.log(nextInList);
     if (nextInList.length != 0) {
         await databaseManager.removeFromWaitList(department);
+        console.log(global.io.sockets.connnected)
         let socket = global.io.sockets.connected[nextInList[0].socket_id];
-        console.log(socket);
+        
+        //console.log(socket);
         // socket.emit(
         //     "agentAvailable",
         //     `An agent is now available! Connecting you to a ${department} agent...`
