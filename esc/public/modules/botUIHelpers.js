@@ -10,7 +10,7 @@ const initialPrompt = async botui => {
                 value: "yes"
             },
             {
-                text: "No thanks",
+                text: "No",
                 value: "no"
             }
         ]
@@ -30,7 +30,7 @@ const initialPrompt = async botui => {
 const departmentPrompt = async botui => {
     await botui.message.add({
         delay: 500,
-        content: "Department?"
+        content: "Which product are you experiencing issues with?"
     });
     let res = await botui.action.button({
         delay: 300,
@@ -48,16 +48,16 @@ const departmentPrompt = async botui => {
             }
         ]
     });
-    return departmentChosen(botui, res.value);
+    return departmentChosen(botui, res.text, res.value);
 };
 
-const departmentChosen = async(botui, dept) => {
+const departmentChosen = async(botui, dept, depttodb) => {
     await botui.message.add({
         // show a message
         delay: 300,
         content: `Connecting you to a ${dept} agent...`
     });
-    return dept;
+    return depttodb;
 };
 
 const connected = async(botui, resCallback) => {
