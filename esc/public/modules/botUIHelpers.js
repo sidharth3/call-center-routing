@@ -74,8 +74,9 @@ const textInput = async(botui, resCallback) => {
             placeholder: "Type here"
         }
     });
-    resCallback(result);
-    textInput(botui, resCallback);
+    // resCallback(result);
+    // textInput(botui, resCallback);
+    return result;
 };
 
-export { initialPrompt, connected };
+export { initialPrompt, connected, textInput };

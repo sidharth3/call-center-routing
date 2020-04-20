@@ -19,10 +19,8 @@
 -- Table structure for table `agents`
 --
 
-DROP TABLE IF EXISTS `agents`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `agents` (
+
+CREATE TABLE `databaseesc` (
   `id` varchar(24) NOT NULL,
   `department` varchar(100) DEFAULT NULL,
   `available` tinyint(1) DEFAULT NULL,
@@ -37,9 +35,9 @@ CREATE TABLE `agents` (
 -- Dumping data for table `agents`
 --
 
-LOCK TABLES `agents` WRITE;
+LOCK TABLES `databaseesc` WRITE;
 /*!40000 ALTER TABLE `agents` DISABLE KEYS */;
-INSERT INTO `agents` VALUES ('5e608905d8084c29e64eb74b','sales',0,0,NULL,0),('5e89cfcb35c8367f99b9790e','finance',0,0,NULL,0),('5e609018d8084c29e64eb76f','general',0,0,NULL,0);
+INSERT INTO `databaseesc` VALUES ('5e608905d8084c29e64eb74b','sales',0,0,NULL,0),('5e89cfcb35c8367f99b9790e','finance',0,0,NULL,0),('5e609018d8084c29e64eb76f','general',0,0,NULL,0);
 /*!40000 ALTER TABLE `agents` ENABLE KEYS */;
 UNLOCK TABLES;
 
