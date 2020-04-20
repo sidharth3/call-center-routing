@@ -26,7 +26,7 @@ const mysql = require("mysql");
 const utils = require("./utils");
 
 const connectionPool = mysql.createPool({
-    host: "35.240.195.170",
+    host: "35.240.211.194",
     user: "root",
     password: "",
     database: "sampledb",
