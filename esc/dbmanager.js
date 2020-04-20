@@ -29,6 +29,7 @@ const connectionPool = mysql.createPool({
     host: "35.240.195.170",
     user: "root",
     password: "",
+    database: "sampledb",
     multipleStatements: true
 });
 
