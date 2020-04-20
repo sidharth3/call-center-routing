@@ -32,7 +32,7 @@ const connectionPool = mysql.createPool({
     multipleStatements: true
 });
 
-let databaseName = "sampleDB";
+let databaseName = "sampledb";
 
 const setDatabase = dbName => {
     if (!utils.isAlphaNum(dbName))
