@@ -78,31 +78,31 @@ header {
     z-index: 0;
 }
 
-.text {
+.text-pear {
     color: #fff;
     flex: 1;
     text-transform: uppercase;
 }
 
-.text h1 {
+.pear-title {
     font-size: calc(1rem + 4vw);
     font-weight: 800;
     line-height: 1.2;
     color: white;
 }
 
-.text h1 span {
+.red-keyword {
     color: #ff292c;
 }
 
-.text h5 {
+.pear-subtitle {
     font-size: 1.9rem;
     font-weight: 800;
     margin: 8rem 0 4rem 0;
     color: white;
 }
 
-.text p {
+.pear-body {
     text-transform: lowercase;
     font-size: 1.6rem;
     line-height: 1.5;
