@@ -1,19 +1,18 @@
-
-
 .support_image {
     position: fixed;
-    bottom:20px;
+    bottom: 20px;
     right: 30px;
     z-index: 1;
     align-self: baseline;
 }
+
 #support_image:hover {
     transform: scale(1.05);
 }
 
-#support_image:active { 
+#support_image:active {
     -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
+    transform: rotate(10deg);
 }
 
 .botui-app-container {
@@ -23,15 +22,20 @@
     border-style: solid;
     border-radius: 20px;
     border-color: grey;
-    bottom:20px;
-    right:30px;
+    bottom: 20px;
+    right: 30px;
     visibility: hidden;
     overflow: hidden;
     z-index: 1;
 }
+
 #allocablPrompt.show {
     visibility: visible;
     z-index: 1;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
+}
+
+.chat-container {
+    z-index: 3;
 }

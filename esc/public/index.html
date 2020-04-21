@@ -24,7 +24,7 @@
 
         <!-- Style -->
         <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="css/page1.css">
+        <link rel="stylesheet" href="css/page1new.css">
         <!-- Style/Vars-->
         <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -38,102 +38,51 @@
 
     </head>
     <body>
-    <header>
-		<div class="container">
-			<nav class="nav">
-				<ul class="nav-list nav-list-mobile">
-					<li class="nav-item">
-						<div class="mobile-menu">
-							<span class="line line top"></span>
-							<span class="line line bottom"></span>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link nav-link-apple"></a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link nav-link-bag"></a>
-					</li>
-				</ul>
-				<!-- /.nav-list nav-list-mobile -->
-				<ul class="nav-list nav-list-larger">
-					<li class="nav-item nav-item-hidden">
-						<a href="#" class="nav-link nav-link-apple"></a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">Pac</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">uPad</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">uPhone</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">Watch</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">TV</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">Music</a> 
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">Support</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link nav-link-search"></a>
-					</li>
-					<li class="nav-item nav-item-hidden">
-						<a href="#" class="nav-link nav-link-bag"></a>
-					</li>
-				</ul>
-				<!-- /.nav-list nav-list-larger -->
-			</nav>
-			
-		</div>
-	</header>
-    <section class="hero iphone-11-pro">
-		<div class="container">
-			<div class="title">
-				<h2 class="title-heading" style="color:white">uPhone 11 Pear</h2>
-				<h3 class="title-sub-heading" style="color:white">Pear cameras. Pear Display. Pear performance.</h3>
-				<p class="title-price">From $24.95/mo. or $599 with trade-in.*</p>
+		<header>
+			<div class="container">
+				<nav class="nav">
+					<a href="#" class="nav-logo">Pear</a>
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="#" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Gallery</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Features</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Support</a>
+						</li>
+						<li class="nav-item">
+							<a href="#" class="nav-link">Shop</a>
+						</li>
+					</ul>	
+				</nav>
 			</div>
-			<div class="cta">
-				<a href="#" class="cta-link">Learn more</a> <!-- to page 3 -->
-				<a href="#" class="cta-link">Buy</a>
+		</header>
+		<section class="hero">
+			<div class="container">
+				<div class="content">
+					<div class="text">
+						<h1>Lifestyle <br> Smart <span>Watch</span></h1>
+						<h5>Pear of the future</h5>
+						<p>The future of Smart watches have arrived! Our watch integrates seamlessly into our Pear ecosystem with ability to do normal functions just like a normal phone. Besides, it has integrated sports features that allow you to track and monitor your sports activities, all on this new pear watch. STAY TUNED!</p>
+						<a href="#" class="cta">Buy now</a>
+					</div>
+					<div class="watch-wrapper">
+						<img src="images/watch.png" alt="">
+					</div>
+				</div>
 			</div>
-		</div>
-	</section>
 
-	<section class="hero iphone-11">
-		<div class="container">
-			<div class="title title-dark">
-				<h2 class="title-heading">uPhone 11</h2>
-				<h3 class="title-sub-heading">Just the right amount of everything.</h3>
-				<p class="title-price">From $16.62/mo. or $399 with trade-in.*</p>
+			<div class="overlay">
+				<div class="layer layer-1"></div>
+				<div class="layer layer-2"></div>
+				<div class="layer layer-3"></div>
 			</div>
-			<div class="cta">
-				<a href="#" class="cta-link cta-link-darker">Learn more</a> <!-- to page 3 -->
-				<a href="#" class="cta-link cta-link-darker">Buy</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="hero watch">
-		<div class="container">
-			<div class="title title-dark">
-				<h2 class="title-heading-watch"></h2>
-				<h3 class="title-sub-heading">With the new always-On Retina Display. <br>
-				You've never seen a watch like this.</h3>
-			</div>
-			<div class="cta">
-				<a href="#" class="cta-link cta-link-darker">Learn more</a> <!-- to page 3 -->
-				<a href="#" class="cta-link cta-link-darker">Buy</a>
-			</div>
-		</div>
-	</section>
+		</section>
 
         <div class="chat-container">
             <div class="botui-app-container" id="allocablPrompt">
@@ -161,5 +110,31 @@
               popup.classList.toggle("show");
             }
         </script>
+
+		<!--Gsap CDN    -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.5/gsap.min.js"></script>
+		<script>
+			gsap.to('.layer-1', {y: '100vh', delay: .5});
+			gsap.to('.layer-2', {y: '100vh', delay: .7});
+			gsap.to('.layer-3', {y: '100vh', delay: .9});
+			gsap.to('.overlay', {y: '100vh', delay: 1.5});
+
+			gsap.fromTo('.text',
+				{x: '30rem', opacity: 0},
+				{x: 0, opacity: 1, ease: 'back.out(1.7)', delay:1.9});
+
+			gsap.fromTo('.watch-wrapper',
+				{x: '30rem', opacity: 0},
+				{x: 0, opacity: 1, ease: 'back.out(1.7)', delay:2.3});
+
+			gsap.fromTo('.circle-small',
+				{x: '-30rem', opacity: 0},
+				{x: 0, opacity: 1, ease: 'back.out(1.7)', delay:1});
+
+			gsap.fromTo('.circle-large',
+				{x: '30rem', opacity: 0},
+				{x: 0, opacity: 1, ease: 'back.out(1.7)', delay:1.5});
+		</script>
+
     </body>
 </html>
