@@ -1,16 +1,16 @@
 const initialPrompt = async botui => {
     await botui.message.add({
         // show a message
-        content: "Hello! Would you like to be connected to our Customer Service?"
+        content: "Welcome to Pear Customer Service!"
     });
     let res = await botui.action.button({
         // show 'text' action
         action: [{
-                text: "Yes!",
+                text: "I'd like to speak to an agent",
                 value: "yes"
             },
             {
-                text: "No",
+                text: "No, Thanks",
                 value: "no"
             }
         ]

@@ -14,7 +14,7 @@ $(function () {
     let warningCount = 0;
     let next = true;
 
-    setInterval(resetMessageCount, 3000);
+    setInterval(resetMessageCount, 5000);
 
     function resetMessageCount() {
         msgCount = 0;
@@ -33,21 +33,21 @@ $(function () {
             "Successfully disconnected."
         );
         await rainbowSDK.connection.signout();
-        await botui.message.add({ content: "You have been disconnected." });
+        await botui.message.add({ content: "Multiple Spam Attacks detected! You have been disconnected." });
         await botui.action.hide();
     };
 
     const processInput = async (input, conversation) => {
         msgCount++;
-        if (msgCount < 5) {
+        if (msgCount < 10) {
             console.log(input);
             rainbowSDK.im.sendMessageToConversation(conversation, input);
         } else {
             await botui.message.add({
                 content:
-                    "Your message was not received by the agent. You can only send 5 messages every 3 seconds.",
+                    "Spam attempt detected! Please send only 10 messages every 5 seconds.",
             });
-            if (msgCount === 5) {
+            if (msgCount === 10) {
                 warningCount++;
                 if (warningCount === 3) {
                     await forceDisconnect(conversation);
