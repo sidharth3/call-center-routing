@@ -89,7 +89,7 @@
                 <bot-ui></bot-ui>
             </div>
             <div class="support_image">
-                <img id="support_image" src="images/unnamed.png" weight="50" height = "97" width = "256" alt="support image" onclick="myFunction()">
+                <img id="support_image" src="images/support.png" weight="50" height ="50" width= "50" alt="support image" onclick="myFunction()">
             </div>
         </div>
 
@@ -100,12 +100,12 @@
               var popup = document.getElementById("allocablPrompt");
               // Toggle image between when on clicked , support.png (BLUE) to support_active.png (RED)
               var support = document.getElementById("support_image")
-              var support_image = "images/unnamed.png";
-              var support_active = "images/unnamed.png";
+              var support_image = "images/support.png";
+              var support_active = "images/support_active.png";
               if (support.getAttribute("src") == support_image ){
-                  support.setAttribute("src","images/unnamed.png");
+                  support.setAttribute("src","images/support_active.png");
               }else{
-                  support.setAttribute("src","images/unnamed.png");
+                  support.setAttribute("src","images/support.png");
               }
               popup.classList.toggle("show");
             }
