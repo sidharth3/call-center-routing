@@ -37,6 +37,17 @@ Password: hidden (request for info)
 - Simply click it and you will be presented with options to be routed to any available online agent.
 - Make sure one agent is online on the Rainbow Sandbox so you can test its functionality
 
+## Testing
+### Selenium tests
+- There are a selenium codes in the /seleniumTest folder. Run it with java environment with WebDriver installed
+### Mocha Chai Unit Tests
+```
+npm test
+```
+There are over a 100 unit tests included for a good level of coverage.   
+
+<br/>
+
 ## Built with 
 * [OpenRainbow](https://www.openrainbow.com/en/developers) - OpenRainbow communication platform by Alcatel Lucent Technologies. We used the Node.JS SDK
 * [Google Cloud Platform](https://cloud.google.com/) - GCP used to host our client website and our MySQL database
